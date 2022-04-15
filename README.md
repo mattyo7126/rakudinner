@@ -6,7 +6,7 @@
 | nickname           | string     | null: false                    |
 | encrypted_password | string     | null: false                    |
 | cooking_history_id | integer    | null: false                    |
-| introduction       | string     | null: false                    |
+| introduction       | text     | null: false                    |
 
 ###Association
 -has_many :recipes
