@@ -29,8 +29,8 @@
 | Column             | Type       | Options                        |
 | ------------------ | -----------| ------------------------------ |
 | comment_text       | text       | null: false                    |
-| user_id            | references | null: false, foreign_key: true |
-| recipes_id         | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| recipe             | references | null: false, foreign_key: true |
 
 ###Association
 -belongs_to :user
