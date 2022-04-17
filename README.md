@@ -17,8 +17,12 @@
 | ------------------ | -----------| ------------------------------ |
 | title              | string     | null: false                    |
 | time_id            | integer    | null: false                    |
+| category_id        | integer    | null: false                    |
+| quantity-id        | integer    | null: false                    |
 | ingredients        | text       | null: false                    |
 | process            | text       | null: false                    |
+| point              | text       |                                |
+| extra              | text       |                                |
 | user               | references | null: false, foreign_key: true |
 
 ##Association
