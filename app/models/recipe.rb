@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   belongs_to :cooking_time
   belongs_to :category
   belongs_to :quantity
+  belongs_to :user
 
   has_one_attached :image
 
@@ -19,3 +20,4 @@ class Recipe < ApplicationRecord
     validates :quantity_id
   end
 end
+

@@ -7,9 +7,11 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.integer :quantity_id, null: false
       t.text :ingredients,    null: false
       t.text :process,        null: false
-      t.text :point
+      t.text :point, null: false
       t.text :extra
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end
 end
+

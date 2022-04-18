@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 
   def index
+    @recipes = Recipe.includes(:user).order('created_at DESC')
   end  
 
   def new
@@ -19,6 +20,6 @@ class RecipesController < ApplicationController
     private
 
     def recipes_params
-      params.require(:recipe).permit(:image, :title, :category_id, :cooking_time_id, :quantity_id, :ingredients, :process, :point, :extra)
+      params.require(:recipe).permit(:image, :title, :category_id, :cooking_time_id, :quantity_id, :ingredients, :process, :point, :extra).merge(user_id: current_user.id)
     end
 end
