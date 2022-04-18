@@ -1,0 +1,81 @@
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">レシピを投稿</h2>
+    <%= form_with(model: @recipe, local: true) do |f| %>
+
+    <%= render 'shared/error_messages', model: @recipe %>
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        料理写真
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+    <div class="recipes-detail">
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+        <div class="weight-bold-text">
+          目安時間
+          <span class="indispensable">必須</span>
+        </div> 
+        <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"cooking-time"}) %>
+        <div class="weight-bold-text">
+            分量
+            <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:quantity_id, Quantity.all, :id, :name, {}, {class:"select-box", id:"quantity"}) %>
+      </div>
+    </div>
+
+    <div class="new-recipes">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"recipes-text", id:"title", placeholder:"例）豚肉ともやしの炒め物" %>
+      <div class="recipes-explain">
+        <div class="weight-bold-text">
+          材料
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :ingredients, class:"recipes-text", id:"ingredients", placeholder:"例）もやし 一袋" %>
+        <div class="process">
+         <div class="weight-bold-text">
+            作り方
+            <span class="indispensable">必須</span>
+         </div>  
+          <%= f.text_area :process, class:"recipes-text", id:"process" %>
+        </div>
+        <div class="point">
+          <div class="weight-bold-text">
+            時短ポイント
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :point, class:"recipes-text", id:"point", placeholder:"もやしを2分ほどレンジでチンしてから炒めると早くできます。" %>
+        </div>
+        <div class="extra">
+          <div class="weight-bold-text">
+            応用編
+          </div>
+          <%= f.text_area :extra, class:"recipes-text", id:"extra", placeholder:"豚キムチにしてもおいしいです。もしくは水溶き片栗粉と(あれば)鶏ガラスープの素で中華風にできます！" %>
+        </div>
+      </div>
+    </div>
+   
+    <div class="sell-btn-contents">
+      <%= f.submit "レシピ投稿" ,class:"sell-btn" %>
+      <%=link_to 'もどる', '#', class:"back-btn" %>
+    </div>
+    
+  </div>
+  <% end %>
