@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_062445) do
+ActiveRecord::Schema.define(version: 2022_04_18_001726) do
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "time_id", null: false
+    t.integer "cooking_time_id", null: false
     t.integer "category_id", null: false
     t.integer "quantity_id", null: false
     t.text "ingredients", null: false

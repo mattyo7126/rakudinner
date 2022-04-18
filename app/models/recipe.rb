@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :time
+  belongs_to :cooking_time
   belongs_to :category
   belongs_to :quantity
 
@@ -14,7 +14,7 @@ class Recipe < ApplicationRecord
   end  
 
   with_options numericality: { other_than: 1 } do
-    validates :time_id
+    validates :cooking_time_id
     validates :category_id
     validates :quantity_id
   end

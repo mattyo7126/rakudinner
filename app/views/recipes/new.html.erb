@@ -27,8 +27,8 @@
         <div class="weight-bold-text">
           目安時間
           <span class="indispensable">必須</span>
-        </div>
-        <%# <%= f.collection_select(:time_id, Time.all, :id, :name, {}, {class:"select-box", id:"time"}) %>
+        </div> 
+        <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"cooking-time"}) %>
         <div class="weight-bold-text">
             分量
             <span class="indispensable">必須</span>
