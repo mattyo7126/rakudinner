@@ -1,4 +1,4 @@
-  <div class="items-sell-main">
+<div class="items-sell-main">
     <h2 class="items-sell-title">レシピを投稿</h2>
     <%= form_with(model: @recipe, local: true) do |f| %>
 
@@ -58,7 +58,7 @@
         </div>
         <div class="point">
           <div class="weight-bold-text">
-            時短・味付けポイント
+            時短ポイント
             <span class="indispensable">必須</span>
           </div>
           <%= f.text_area :point, class:"recipes-text", id:"point", placeholder:"もやしを2分ほどレンジでチンしてから炒めると早くできます。" %>
@@ -73,7 +73,7 @@
     </div>
    
     <div class="sell-btn-contents">
-      <%= f.submit "レシピ投稿" ,class:"sell-btn" %>
+      <%= f.submit "変更" ,class:"sell-btn" %>
       <%=link_to 'もどる', '#', class:"back-btn" %>
     </div>
     

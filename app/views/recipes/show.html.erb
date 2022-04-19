@@ -5,7 +5,7 @@
   <ul class='lists-right'>
       <% if user_signed_in? %>
         <% current_user.id == @recipe.user_id%>
-          <li><%= link_to '編集', '#', class: "edit-recipe" %></li>
+          <li><%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %></li>
           <li><%= link_to '削除', '#', method: :delete, class: "destroy-recipe" %></li>
       <% end %>
   </ul>
@@ -45,13 +45,15 @@
           <td class="detail-value"><%= @recipe.process %></td>
         </tr>
         <tr>
-          <th class="detail-item">時短ポイント</th>
+          <th class="detail-item">時短・味付けポイント</th>
           <td class="detail-value"><%= @recipe.point %></td>
         </tr>
+      <%if @recipe.extra.present? %>
         <tr>
           <th class="detail-item">応用編</th>
           <td class="detail-value"><%= @recipe.extra %></td>
         </tr>
+      <% end %>
       </tbody>
     </table>
   </div>
