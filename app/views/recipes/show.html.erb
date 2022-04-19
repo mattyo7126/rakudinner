@@ -1,0 +1,58 @@
+<%= render "shared/header" %>
+
+<div class="nav">
+  <ul class="list-left"></ul>
+  <ul class='lists-right'>
+      <% if user_signed_in? %>
+        <% current_user.id == @recipe.user_id%>
+          <li><%= link_to '編集', '#', class: "edit-recipe" %></li>
+          <li><%= link_to '削除', '#', method: :delete, class: "destroy-recipe" %></li>
+      <% end %>
+  </ul>
+</div>
+<div class="recipe-show">
+  <div class="recipe-box">
+    <h2 class="name">
+      <%= @recipe.title %>
+    </h2>
+    <div class="recipe-img-content">
+      <%= image_tag @recipe.image, class:"recipe-box-img" %>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= @recipe.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @recipe.category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">目安時間</th>
+          <td class="detail-value"><%= @recipe.cooking_time.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">分量</th>
+          <td class="detail-value"><%= @recipe.quantity.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">材料</th>
+          <td class="detail-value"><%= @recipe.ingredients %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">作り方</th>
+          <td class="detail-value"><%= @recipe.process %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">時短ポイント</th>
+          <td class="detail-value"><%= @recipe.point %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">応用編</th>
+          <td class="detail-value"><%= @recipe.extra %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
