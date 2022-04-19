@@ -5,7 +5,7 @@
   <ul class='lists-right'>
       <% if user_signed_in? %>
         <% current_user.id == @recipe.user_id%>
-          <li><%= link_to '編集', '#', class: "edit-recipe" %></li>
+          <li><%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %></li>
           <li><%= link_to '削除', '#', method: :delete, class: "destroy-recipe" %></li>
       <% end %>
   </ul>
