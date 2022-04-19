@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-  before_action:set_recipe, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
     @recipes = Recipe.includes(:user).order('created_at DESC')
@@ -35,6 +36,14 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    if @recipe.user.id == current_user.id
+      @recipe.destroy
+      redirect_to root_path
+    end
+  end
+    
 
 
     private
