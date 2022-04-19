@@ -1,4 +1,12 @@
 <%= render "shared/header" %> 
+<div class="main">
+
+  <div class='title_contents'>
+    <%= image_tag "top_image.png", class:"top-image", alt:"トップ画像" %>
+      <%= link_to new_recipe_path do %>
+        <%=image_tag "plus_btn.png", class:"plus-btn", alt:"レシピ投稿ボタン" %>
+      <% end %> 
+  </div>
 
  <div class='recipe-contents'>
     <h2 class='title'>レシピ一覧</h2>
@@ -9,6 +17,7 @@
           <div class='recipe-img-content'>
             <%= image_tag recipe.image, class: "recipe-img" %>
           </div>
+        <% end %>
           <div class='recipe-info'>
             <h3 class='recipe-title'>
               <%= recipe.title %>
@@ -17,8 +26,8 @@
             <%= recipe.cooking_time.name %>
           </div>
         </li>
-        <% end %>
       <% end %> 
     </ul> 
   </div>
+</div>
 

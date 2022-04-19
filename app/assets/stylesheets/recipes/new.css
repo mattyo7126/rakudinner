@@ -1,7 +1,9 @@
 /* border-bottom: 1px solid #eee; */
-
+.body {
+  background-color: #fff5ee;
+}
 .items-sell-main {
-  background-color: #FFF;
+  background-color: #fff5ee;
   width: 100vw;
   min-width: 450px;
   padding: 10vh 30vw;
@@ -11,6 +13,7 @@
   font-size: 22px;
   font-weight: bold;
   text-align: center;
+  color: #2e8b57;
 }
 
 .indispensable {
@@ -90,8 +93,8 @@
   text-align: center;
 }
 
-.sell-btn {
-  background: #e2bbe2;
+.recipe-btn {
+  background: #e9967a;
   border: 1px solid #ccc;
   color: #fff;
   width: 100%;

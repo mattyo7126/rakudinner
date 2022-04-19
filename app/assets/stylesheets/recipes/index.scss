@@ -1,6 +1,22 @@
+body {
+background-color: #FFF5EE;
+}
+.top-image {
+ width: 100%;
+ height: 600px;
+ padding: 0 50px;
+ position: relative;
+}
 
+.plus-btn {
+  position: absolute;
+  top: 55vh;
+  right: 8vh;
+
+
+}
 .recipe-contents {
-  background-color: #FFF;
+  background-color: #FFF5EE;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +26,7 @@
 .recipe-contents>.title {
   font-size: 3vh;
   line-height: 1.4;
-  font-weight: bold;
+  color: #2e8b57;
 }
 
 
@@ -26,7 +42,7 @@
 .recipe-lists>.list {
   width: 37vh;
   padding: 1vw;
-  background-color: #FFF;
+  background-color: #FFF5EE;
 }
 
 
@@ -40,17 +56,19 @@
 }
 
 .recipe-info {
-  background-color: #FFF;
+  background-color: #FFF5EE;
   color: black;
   padding: 1vw;
 }
 
 .recipe-title {
-  font-size: 2.5vh;
+  font-size: 2vh;
+  color: #696969;
 }
 
 .cooking-time {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
+  color:#696969;
 }
