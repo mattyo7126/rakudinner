@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   belongs_to :category
   belongs_to :quantity
   belongs_to :user
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :image
 
@@ -18,6 +19,10 @@ class Recipe < ApplicationRecord
     validates :cooking_time_id
     validates :category_id
     validates :quantity_id
+  end
+
+  def favorited?(user)
+    favorites.where(user_id: user.id).exists?
   end
 end
 

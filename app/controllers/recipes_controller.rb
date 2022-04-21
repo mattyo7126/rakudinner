@@ -44,8 +44,6 @@ class RecipesController < ApplicationController
     end
   end
     
-
-
     private
 
     def recipes_params
