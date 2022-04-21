@@ -19,12 +19,12 @@
       <%= @recipe.title %>
      </h2>
      <% if @recipe.favorited?(current_user) %>
-      <%= link_to recipe_favorites_path(@recipe.id), method: :delete do %>
-        <span style="color:pink;">❤︎</span>
+      <%= link_to recipe_favorite_path(@recipe.id), method: :delete do %>
+        <span style="color:pink;"><i class="fa-solid fa-heart fa-2x faa-wrench animated-hover"></i></span>
       <% end %>
     <% else %>
       <%= link_to recipe_favorites_path(@recipe.id), method: :post do %>
-        <span style="color:gray;">❤︎</span>
+        <span style="color:gray;"><i class="fa-solid fa-heart fa-2x"></i></span>
       <% end %>
     <% end %>
 
