@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'NewTegomin';
+  src: url('../fonts/NewTegomin.ttf') format('truetype');
+
+}
+.footer {
+  background-color: #f8b29b;
+  padding: 1vh 0
+}
+
+.footer-bar{
+  text-decoration: none;
+  font-family: 'NewTegomin';
+  font-size: 20px;
+  color: #594A47;
+  text-align: center;
+}

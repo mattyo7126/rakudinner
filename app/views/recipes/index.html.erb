@@ -1,6 +1,5 @@
 <%= render "shared/header" %> 
 <div class="main">
-
   <div class='title_contents'>
     <%= image_tag "top_image.jpeg", class:"top-image", alt:"トップ画像" %>
       <%= link_to new_recipe_path do %>
@@ -23,6 +22,7 @@
               <%= recipe.title %>
             </h3>
           <div class='cooking-time'>
+            <span style="color:gray;"><i class="fa-solid fa-clock-eight"></i></span>
             <%= recipe.cooking_time.name %>
           </div>
         </li>
@@ -30,4 +30,6 @@
     </ul> 
   </div>
 </div>
+<%= render "shared/footer" %> 
+
 

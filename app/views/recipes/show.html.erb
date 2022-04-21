@@ -1,13 +1,12 @@
 <%= render "shared/header" %>
-
 <div class="nav">
   <ul class="list-left"></ul>
   <ul class='lists-right'>
-      <% if user_signed_in? %>
-        <% current_user.id == @recipe.user_id%>
-          <li><%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %></li>
-          <li><%= link_to '削除', recipe_path(@recipe.id), method: :delete, class: "destroy-recipe" %></li>
-      <% end %>
+    <% if user_signed_in? %>
+      <% current_user.id == @recipe.user_id%>
+      <%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %>
+      <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class: "destroy-recipe" %>
+    <% end %>
   </ul>
 </div>
 <div class="recipe-show">
@@ -68,3 +67,4 @@
     </table>
   </div>
 </div>
+<%= render "shared/footer" %> 
