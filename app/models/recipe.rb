@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   belongs_to :category
   belongs_to :quantity
   belongs_to :user
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :image
 
