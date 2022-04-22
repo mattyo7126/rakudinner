@@ -3,7 +3,7 @@
   <ul class="list-left"></ul>
   <ul class='lists-right'>
     <% if user_signed_in? %>
-      <% current_user.id == @recipe.user_id%>
+      <% current_user.id == @recipe.user_id %>
       <%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %>
       <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class: "destroy-recipe" %>
     <% end %>

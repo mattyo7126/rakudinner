@@ -21,20 +21,20 @@
     <div class="recipes-detail">
       <div class="form">
         <div class="weight-bold-text">
-          カテゴリー
+          カテゴリ
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "--"}, {class:"select-box", id:"category"}) %>
         <div class="weight-bold-text">
           目安時間
           <span class="indispensable">必須</span>
         </div> 
-        <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"cooking-time"}) %>
+        <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {include_blank: "--"}, {class:"select-box", id:"cooking-time"}) %>
         <div class="weight-bold-text">
             分量
             <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:quantity_id, Quantity.all, :id, :name, {}, {class:"select-box", id:"quantity"}) %>
+        <%= f.collection_select(:quantity_id, Quantity.all, :id, :name, {include_blank: "--"}, {class:"select-box", id:"quantity"}) %>
       </div>
     </div>
     <div class="new-recipes">

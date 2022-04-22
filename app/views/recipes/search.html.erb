@@ -1,0 +1,51 @@
+<%= render "shared/header" %>
+<div class="main">
+  <h2 class="search-title">レシピ検索</h2>
+  <div class="search-contents" id="detailed-search-result-wrapper">
+    <%= search_form_for @q, url: search_recipes_path, html: {id: "detailed-search-form"} do |f| %>
+    <div class="search-field">
+      <%= f.label :title_cont, 'レシピ名', class:"search-text" %>
+      <br>
+      <%= f.text_field :title_cont, placeholder: 'レシピ名' %>
+    </div>
+    <br>
+    <div class="search-field">
+     <%= f.label :category_id_in, 'カテゴリ', class:"search-text" %>
+     <br>
+    <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) %>
+    </div>
+    <br>
+    <div class="search-field">
+    <%= f.label :ingredients, '材料', class:"search-text" %>
+    <br>
+    <%= f.text_field :ingredients, placeholder: '材料', value: params[:q]&.dig(:ingredients) %>
+    </div>
+    <br>
+    <%= f.submit '検索' %>
+    <% end %>
+  </div>
+
+   <div class='recipe-contents'>
+    <ul class='search-lists' id="detailed-search-result">
+    <% @recipes.each do |recipe| %>
+      <li class='search-list'>
+        <%= link_to recipe_path(recipe.id) do %>
+          <div class='recipe-img-content'>
+            <%= image_tag recipe.image, class: "recipe-img" %>
+          </div>
+        <% end %>
+          <div class='recipe-info'>
+            <h3 class='recipe-title'>
+              <%= recipe.title %>
+            </h3>
+          <div class='cooking-time'>
+            <%= recipe.cooking_time.name %>
+          </div> 
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+</div >
+
+<%=render "shared/footer" %>

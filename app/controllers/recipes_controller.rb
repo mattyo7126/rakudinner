@@ -43,6 +43,15 @@ class RecipesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def search
+    if params[:q]&.dig(:ingredients)
+      squished_keywords = params[:q][:ingredients].squish
+      params[:q][:ingredients_cont_any] = squished_keywords.split(" ")
+    end
+      @q = Recipe.ransack(params[:q])
+      @recipes = @q.result
+  end
     
     private
 
