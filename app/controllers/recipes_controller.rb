@@ -45,8 +45,12 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @q = Recipe.ransack(params[:q])
-    @recipes = @q.result
+    if params[:q]&.dig(:ingredients)
+      squished_keywords = params[:q][:ingredients].squish
+      params[:q][:ingredients_cont_any] = squished_keywords.split(" ")
+    end
+      @q = Recipe.ransack(params[:q])
+      @recipes = @q.result
   end
     
     private

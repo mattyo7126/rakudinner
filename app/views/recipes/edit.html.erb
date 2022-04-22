@@ -1,5 +1,6 @@
+<%= render "shared/header" %>
 <div class="items-sell-main">
-    <h2 class="items-sell-title">レシピを投稿</h2>
+    <h2 class="items-sell-title">レシピを編集</h2>
     <%= form_with(model: @recipe, local: true) do |f| %>
 
     <%= render 'shared/error_messages', model: @recipe %>
@@ -73,9 +74,10 @@
     </div>
    
     <div class="sell-btn-contents">
-      <%= f.submit "変更" ,class:"sell-btn" %>
+      <%= f.submit "変更" ,class:"recipe-btn" %>
       <%=link_to 'もどる', '#', class:"back-btn" %>
     </div>
     
   </div>
   <% end %>
+  <%= render "shared/footer" %> 
