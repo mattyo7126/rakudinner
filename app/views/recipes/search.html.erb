@@ -12,7 +12,12 @@
     <div class="search-field">
      <%= f.label :category_id_eq, 'カテゴリ' %>
      <br>
-    <%= f.collection_select(:category_id_eq, Category.all, :id, :name, {}) %>
+    <%= f.collection_select(:category_id_eq, Category.all, :id, :name, {include_blank:"--"}) %>
+    </div>
+    <div class="search-field">
+    <%= f.label :ingredients_cont, '材料' %>
+    <br>
+    <%= f.text_field :ingredients_cont, placeholder: '材料' %>
     </div>
 
     <%= f.submit '検索' %>
