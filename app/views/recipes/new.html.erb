@@ -21,7 +21,7 @@
     <div class="recipes-detail">
       <div class="form">
         <div class="weight-bold-text">
-          カテゴリー
+          カテゴリ
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "--"}, {class:"select-box", id:"category"}) %>
