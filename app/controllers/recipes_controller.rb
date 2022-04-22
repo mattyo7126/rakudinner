@@ -46,7 +46,7 @@ class RecipesController < ApplicationController
 
   def search
     @q = Recipe.ransack(params[:q])
-    @recipe = @q.result
+    @recipes = @q.result
   end
     
     private

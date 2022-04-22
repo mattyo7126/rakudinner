@@ -2,6 +2,7 @@
    <%= link_to "Rakurakudinner", root_path, class:"header" %>
     <ul class='lists-left'></ul>
     <ul class='lists-right'>
+      <li><%= link_to 'レシピ検索', search_recipes_path, class:"search-btn" %></li>
       <% if user_signed_in? %>
         <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>

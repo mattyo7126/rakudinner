@@ -9,7 +9,7 @@ class Category < ActiveHash::Base
     { id: 7, name: '麺・粉物' },
     { id: 8, name: '汁物・スープ' },
     { id: 9, name: 'サラダ' },
-    { id: 10, name: 'おつまみ'}
+    { id: 10, name: 'おつまみ'},
     { id: 11, name: 'お菓子' },
     { id: 12, name: 'その他' }
   ]
