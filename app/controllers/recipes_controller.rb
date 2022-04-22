@@ -43,6 +43,11 @@ class RecipesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def search
+    @q = Recipe.ransack(params[:q])
+    @recipe = @q.result
+  end
     
     private
 
