@@ -8,7 +8,7 @@
 
 .form-wrap {
   width: 50%;
-  background-color: white;
+  background-color: #FFF5EE;
   padding-bottom: 70px;
 }
 
@@ -22,6 +22,7 @@
 .form-header-text {
   line-height: 100px;
   border-bottom: 1px solid #f5f5f5;
+  color: #2e8b57;
 }
 
 .form-group {
@@ -76,7 +77,7 @@
 
 .register-red-btn {
   width: 100%;
-  background: #e2bbe2;
+  background: #e9967a;
   border: 1px solid #ccc;
   color: #fff;
   line-height: 48px;
