@@ -19,7 +19,7 @@
     <div class="search-field">
     <%= f.label :ingredients, '材料' %>
     <br>
-    <%= f.text_field :ingredients, placeholder: '材料' %>
+    <%= f.text_field :ingredients, placeholder: '材料', value: params[:q]&.dig(:ingredients) %>
     </div>
     <br>
     <%= f.submit '検索' %>
