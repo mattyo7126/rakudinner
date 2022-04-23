@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :email, presence: true
   validates :nickname, presence: true
-  validates :cooking_history_id, presence: true
-  validates :introduction, presence: true
+  validates :cooking_history_id, presence: true, length: { maximum: 10}
+  validates :introduction, presence: true, length: { maximum: 40 }
 end
