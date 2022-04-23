@@ -13,7 +13,7 @@ class Recipe < ApplicationRecord
     validates :title
     validates :ingredients
     validates :process
-  end  
+  end
 
   with_options numericality: { other_than: 1 } do
     validates :cooking_time_id
@@ -25,4 +25,3 @@ class Recipe < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 end
-

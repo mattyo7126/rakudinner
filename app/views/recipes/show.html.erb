@@ -1,18 +1,17 @@
-<div class="nav">
-  <ul class="list-left"></ul>
-  <ul class='lists-right'>
-    <% if user_signed_in? %>
-      <% current_user.id == @recipe.user_id %>
-      <%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %>
-      <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class: "destroy-recipe" %>
-    <% end %>
-  </ul>
-</div>
+
 <div class="recipe-show">
   <div class="recipe-box">
     <div class="recipe-img-content">
       <%= image_tag @recipe.image, class:"recipe-box-img" %>
     </div>
+    <% if user_signed_in? && current_user.id == @recipe.user_id %>
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <a class="more_list">
+            <%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %>
+            <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class: "destroy-recipe" %>
+        </a>
+        </ul>
+      <% end %>
      <h2 class="name">
       <%= @recipe.title %>
      </h2>

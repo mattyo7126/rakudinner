@@ -4,30 +4,27 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.includes(:user).order('created_at DESC')
-  end  
+  end
 
   def new
     @recipe = Recipe.new
   end
 
-  def create 
+  def create
     @recipe = Recipe.new(recipes_params)
     if @recipe.save
       redirect_to root_path
     else
       render :new
-    end  
+    end
   end
 
   def show
   end
 
   def edit
-    if @recipe.user_id != current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if @recipe.user_id != current_user.id
   end
-
 
   def update
     if @recipe.update(recipes_params)
@@ -47,19 +44,20 @@ class RecipesController < ApplicationController
   def search
     if params[:q]&.dig(:ingredients)
       squished_keywords = params[:q][:ingredients].squish
-      params[:q][:ingredients_cont_any] = squished_keywords.split(" ")
+      params[:q][:ingredients_cont_any] = squished_keywords.split(' ')
     end
-      @q = Recipe.ransack(params[:q])
-      @recipes = @q.result
+    @q = Recipe.ransack(params[:q])
+    @recipes = @q.result
   end
-    
-    private
 
-    def recipes_params
-      params.require(:recipe).permit(:image, :title, :category_id, :cooking_time_id, :quantity_id, :ingredients, :process, :point, :extra).merge(user_id: current_user.id)
-    end
+  private
 
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
+  def recipes_params
+    params.require(:recipe).permit(:image, :title, :category_id, :cooking_time_id, :quantity_id, :ingredients, :process,
+                                   :point, :extra).merge(user_id: current_user.id)
+  end
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 end
