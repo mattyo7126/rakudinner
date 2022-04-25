@@ -10,16 +10,15 @@ class Recipe < ApplicationRecord
 
   with_options presence: true do
     validates :image
-    validates :title
-    validates :ingredients
-    validates :process
+    validates :title, length: { maximum: 40 }
+    validates :ingredients, length: { maximum: 1000 }
+    validates :process, length: { maximum: 1000 }
+    validates :point, length: { maximum: 100 }
   end
 
-  with_options numericality: { other_than: 1 } do
-    validates :cooking_time_id
-    validates :category_id
-    validates :quantity_id
-  end
+    validates :cooking_time_id, inclusion: { in: [1,2,3,4,5,6] }
+    validates :category_id, inclusion: { in: [1,2,3,4,5,6,7,8,9,10,11] }
+    validates :quantity_id, inclusion: { in: [1,2,3,4,5,6] }
 
   def favorited?(user)
     favorites.where(user_id: user.id).exists?
