@@ -5,7 +5,7 @@
 | ------------------ | ---------- | ------------------------------ |
 | nickname           | string     | null: false                    |
 | encrypted_password | string     | null: false                    |
-| cooking_history_id | integer    | null: false                    |
+| cooking_history_id | text       | null: false                    |
 | introduction       | text       | null: false                    |
 
 ###Association
