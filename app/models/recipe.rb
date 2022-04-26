@@ -16,9 +16,9 @@ class Recipe < ApplicationRecord
     validates :point, length: { maximum: 100 }
   end
 
-    validates :cooking_time_id, inclusion: { in: [1,2,3,4,5,6] }
-    validates :category_id, inclusion: { in: [1,2,3,4,5,6,7,8,9,10,11] }
-    validates :quantity_id, inclusion: { in: [1,2,3,4,5,6] }
+  validates :cooking_time_id, inclusion: { in: [1, 2, 3, 4, 5, 6] }
+  validates :category_id, inclusion: { in: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] }
+  validates :quantity_id, inclusion: { in: [1, 2, 3, 4, 5, 6] }
 
   def favorited?(user)
     favorites.where(user_id: user.id).exists?
