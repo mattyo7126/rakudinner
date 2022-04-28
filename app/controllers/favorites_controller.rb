@@ -1,14 +1,16 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  # before_action :authenticate_user!, except: [:index]
   def create
-    @recipe_favorite = Favorite.new(user_id: current_user.id, recipe_id: params[:recipe_id])
-    @recipe_favorite.save
-    redirect_to recipe_path(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @favorite = current_user.favorites.new(recipe_id: recipe.id)
+    @favorite.save
+    redirect_to recipe_path(@recipe.id)
   end
-
+  
   def destroy
-    @recipe_favorite = Favorite.find_by(user_id: current_user.id, recipe_id: params[:recipe_id])
-    @recipe_favorite.destroy
-    redirect_to recipe_path(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @favorite = current_user.favorites.find_by(recipe_id: recipe.id)
+    @favorite.destroy
+    redirect_to recipe_path(@recipe.id)
   end
 end
