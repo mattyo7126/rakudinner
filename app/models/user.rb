@@ -14,4 +14,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 6 }
   validates :cooking_history_id, presence: true, length: { maximum: 10 }
   validates :introduction, presence: true, length: { maximum: 40 }
+
 end

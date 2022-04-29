@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-  # before_action :authenticate_user!, except: [:index]
+  protect_from_forgery :except => [:destroy, :edit]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,6 +21,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @favorite = Favorite.new
   end
 
   def edit
@@ -35,7 +37,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    if @recipe.user.id == current_user.id
+    if @recipe.user_id == current_user.id
       @recipe.destroy
       redirect_to root_path
     end

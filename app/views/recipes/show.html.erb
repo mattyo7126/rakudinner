@@ -6,23 +6,23 @@
     </div>
     <% if user_signed_in? && current_user.id == @recipe.user_id %>
         <a class="more_list">
-            <%= link_to '編集', edit_recipe_path(@recipe.id), class: "edit-recipe" %>
-            <%= link_to '削除', recipe_path(@recipe.id), method: :delete, class: "destroy-recipe" %>
+            <%= button_to '編集', edit_recipe_path(@recipe.id), method: :get, class: "edit-recipe" %>
+            <%= button_to '削除', recipe_path(@recipe.id), method: :delete, class: "destroy-recipe" %>
         </a>
         </ul>
       <% end %>
      <h2 class="name">
       <%= @recipe.title %>
      </h2>
-     <%# <% if @recipe.favorited_by?(current_user) %> 
-      <%# <%= link_to recipe_favorites_path(@recipe.id), method: :delete do %> 
+      <%# <% if @recipe.favorited_by?(current_user) %> 
+       <%# <%= link_to recipe_favorites_path(@recipe.id), method: :delete do %> 
         <span style="color:pink;"><i class="fa-solid fa-heart fa-2x faa-wrench animated-hover"></i></span>
+       <%# <% end %>
+      <%# <% else %> 
+       <%# <%= link_to recipe_favorites_path(@recipe.id), method: :post do %> 
+        <%# <span style="color:gray;"><i class="fa-solid fa-heart fa-2x"></i></span> %>
       <%# <% end %>
-    <%# <% else %>  
-      <%# <%= link_to recipe_favorites_path(@recipe.id), method: :post do %> 
-        <span style="color:gray;"><i class="fa-solid fa-heart fa-2x"></i></span>
-      <%# <% end %>
-    <%# <% end %> 
+      <%# <% end %> 
     
     <table class="detail-table">
       <tbody>
