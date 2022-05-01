@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   protect_from_forgery :except => [:destroy, :edit]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
