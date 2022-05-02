@@ -7,6 +7,8 @@ RakurakuDinner
 # URL
 https://rakurakudinner-n.herokuapp.com/
 
+画像のリンク切れが起こっている場合がございます。
+
 # テスト用アカウント
 ・Basic認証パスワード：admin
 
